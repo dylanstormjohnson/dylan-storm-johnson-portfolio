@@ -1,0 +1,532 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --primary-color: cyan;
+  --secondary-color: navy;
+  --tertiary-color: blue;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.triangle {
+  width: 500px;
+  height: 300px;
+  position: fixed;
+  z-index: 1;
+  border: 2px solid var(--secondary-color);
+  background-color: var(--tertiary-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.triangle:hover {
+  transform: scale(1.5);
+  box-shadow: 0px 10px 15px var(--primary-color);
+  cursor: pointer;
+}
+
+.triangle::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.triangle:hover::after {
+  opacity: 1;
+}
+
+.projects {
+  top: 0;
+  left: 0;
+  clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+  background-image: linear-gradient(to top left, var(--tertiary-color), black);
+}
+
+.projects span {
+  color: cyan;
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  position: absolute;
+  top: 32%;
+  left: 25%;
+  z-index: 1;
+  transform: rotate(-33deg);
+}
+
+.aboutMe {
+  top: 0;
+  right: 0;
+  clip-path: polygon(100% 0%, 100% 100%, 0% 0%);
+  background-image: linear-gradient(to top right, var(--tertiary-color), black);
+}
+
+.aboutMe span {
+  color: cyan;
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  position: absolute;
+  top: 32%;
+  right: 25%;
+  z-index: 1;
+  transform: rotate(31deg);
+}
+
+.contact {
+  bottom: 0;
+  left: 0;
+  clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+  background-image: linear-gradient(
+    to bottom left,
+    var(--tertiary-color),
+    black
+  );
+}
+
+.contact span {
+  color: cyan;
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  position: absolute;
+  top: 40%;
+  left: 26%;
+  z-index: 1;
+  transform: rotate(32deg);
+}
+
+.resume {
+  bottom: 0;
+  right: 0;
+  clip-path: polygon(100% 0%, 100% 100%, 0% 100%);
+  background-image: linear-gradient(
+    to bottom right,
+    var(--tertiary-color),
+    black
+  );
+}
+
+.resume span {
+  color: cyan;
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  position: absolute;
+  top: 40%;
+  right: 26%;
+  z-index: 1;
+  transform: rotate(-32deg);
+}
+
+.diamond {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(
+    circle at center,
+    var(--secondary-color) 10%,
+    black
+  );
+  background-blend-mode: screen;
+  background-position: center 30%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-image {
+  --image-height: calc(100vh - 80px);
+  background-image: url("/assets/images/Docks_v2.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  width: 100%;
+  height: var(--image-height);
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-content {
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.contact-info-title {
+  font-size: 75px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.contact-info-element {
+  font-size: 35px;
+}
+
+.profile-picture {
+  border-radius: 25%;
+  /* border: solid cyan 10px; */
+  margin: 20px 0px;
+  padding: 10px;
+  background-color: var(--tertiary-color);
+  box-shadow: 0 0 5px 0 var(--tertiary-color),
+    0 0 10px 1.25px var(--tertiary-color), 0 0 15px 2.5px var(--tertiary-color),
+    0 0 20px 3.75px var(--tertiary-color);
+}
+
+.about-me-text {
+  font-family: a;
+  font-size: 20px;
+}
+
+.resume-image {
+  margin: 20px 0px;
+  padding: 10px;
+  background-color: var(--tertiary-color);
+  box-shadow: 0 0 5px 0 var(--tertiary-color),
+    0 0 10px 1.25px var(--tertiary-color), 0 0 15px 2.5px var(--tertiary-color),
+    0 0 20px 3.75px var(--tertiary-color);
+}
+
+.slideshow-container {
+  width: 320px;
+  height: 220px;
+  margin-right: 16px;
+  /* display: flex;
+  align-items: center; */
+}
+
+.card {
+  /* display: flex; */
+  width: 1000px;
+  align-items: flex-start;
+  /* background-color: var(--tertiary-color); */
+  box-shadow: 0 0 5px 0 var(--tertiary-color),
+    0 0 10px 1.25px var(--tertiary-color), 0 0 15px 2.5px var(--tertiary-color),
+    0 0 20px 3.75px var(--tertiary-color);
+}
+
+.text-container {
+  /* flex: 1; */
+  position: relative;
+  width: 600px;
+  left: 100%;
+  bottom: 100%;
+  padding-left: 16px;
+}
+
+.card .slideshow-container img {
+  max-width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.card .slideshow-container img.visible {
+  opacity: 1;
+}
+
+.projects-title-text {
+  text-decoration: underline;
+}
+
+.projects-description-text {
+  font-style: italic;
+}
+
+.navigation {
+  align-items: center;
+}
+
+.mailSymbol {
+  display: none;
+  font-size: 60px;
+}
+
+footer {
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+@media (min-width: 641px) and (max-width: 1300px) {
+  .triangle {
+    width: 550px;
+    height: 150px;
+    /* display: none */
+  }
+
+  .triangle:hover {
+    transform: scale(1.25);
+    z-index: 2;
+  }
+
+  .projects span {
+    font-size: 2.75rem;
+    top: 33%;
+    left: 15%;
+    transform: rotate(-15deg);
+  }
+
+  .aboutMe span {
+    font-size: 2.5rem;
+    top: 35%;
+    right: 17%;
+    transform: rotate(15deg);
+  }
+
+  .contact span {
+    font-size: 2.5rem;
+    top: 23%;
+    left: 20%;
+    transform: rotate(15deg);
+  }
+
+  .resume span {
+    font-size: 2.5rem;
+    top: 23%;
+    right: 20%;
+    transform: rotate(-15deg);
+  }
+
+  .navigation {
+    align-items: normal;
+    height: 10rem;
+  }
+
+  .pageTitle {
+    padding-top: 120px;
+    font-weight: bold;
+  }
+
+  footer {
+    align-items: normal;
+    height: 10rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    padding-bottom: 30px;
+  }
+
+  .contactLink {
+    padding-bottom: 50px;
+  }
+
+  .card {
+    height: 600px;
+    width: 320px;
+  }
+
+  .text-container {
+    width: 310px;
+    left: -5%;
+    top: 10%;
+  }
+
+  .about-me-text {
+    width: 500px;
+    text-align: justify;
+  }
+
+  .BlessedDay {
+    margin-bottom: 1px;
+  }
+
+  .contact-info-container {
+    display: normal;
+  }
+
+  .contact-info-title {
+    font-size: 50px;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+  }
+
+  .contact-info-element {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+  }
+
+  .mailSymbol {
+    display: block;
+  }
+
+  .gitHub-Url span {
+    display: none;
+  }
+
+  .linkedIn-Url span {
+    display: none;
+  }
+
+  .gitHub-Url {
+    padding-top: 1.2rem;
+  }
+
+  .linkedIn-Url {
+    padding-top: 1.2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .triangle {
+    width: 400px;
+    height: 100px;
+    /* display: none */
+  }
+
+  .triangle:hover {
+    transform: scale(1.25);
+    z-index: 2;
+  }
+
+  .projects span {
+    font-size: 2.5rem;
+    top: 20%;
+    left: 11%;
+    transform: rotate(-14deg);
+  }
+
+  .aboutMe span {
+    font-size: 2.5rem;
+    top: 20%;
+    right: 11%;
+    transform: rotate(14deg);
+  }
+
+  .contact span {
+    font-size: 2.5rem;
+    top: 16%;
+    left: 11%;
+    transform: rotate(14deg);
+  }
+
+  .resume span {
+    font-size: 2.5rem;
+    top: 16%;
+    right: 11%;
+    transform: rotate(-14deg);
+  }
+
+  .navigation {
+    align-items: normal;
+    height: 7rem;
+  }
+
+  .pageTitle {
+    padding-top: 80px;
+    font-weight: bold;
+  }
+
+  footer {
+    align-items: normal;
+    height: 7rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+  }
+
+  .contactLink {
+    padding-bottom: 50px;
+  }
+
+  .card {
+    height: 600px;
+    width: 320px;
+  }
+
+  .text-container {
+    width: 310px;
+    left: -5%;
+    top: 10%;
+  }
+
+  .about-me-text {
+    width: 350px;
+    text-align: center;
+  }
+
+  .BlessedDay {
+    margin-bottom: 1px;
+  }
+
+  .contact-info-container {
+    display: normal;
+  }
+
+  .contact-info-title {
+    font-size: 50px;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+  }
+
+  .contact-info-element {
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+  }
+
+  .mailSymbol {
+    display: block;
+  }
+
+  .gitHub-Url span {
+    display: none;
+  }
+
+  .linkedIn-Url span {
+    display: none;
+  }
+
+  .gitHub-Url {
+    padding-top: 1.2rem;
+  }
+
+  .linkedIn-Url {
+    padding-top: 1.2rem;
+  }
+}
